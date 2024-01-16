@@ -99,7 +99,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'ClaimList',
           path: '/claimList',
-          builder: (context, params) => const ClaimListWidget(),
+          builder: (context, params) => ClaimListWidget(
+            id: params.getParam('id', ParamType.String),
+            year: params.getParam('year', ParamType.String),
+          ),
         ),
         FFRoute(
           name: 'Leave',
@@ -193,9 +196,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'CarDetails',
-          path: '/carDetails',
-          builder: (context, params) => const CarDetailsWidget(),
+          name: 'Available',
+          path: '/available',
+          builder: (context, params) => const AvailableWidget(),
+        ),
+        FFRoute(
+          name: 'InUsed',
+          path: '/inUsed',
+          builder: (context, params) => const InUsedWidget(),
+        ),
+        FFRoute(
+          name: 'claimDetail',
+          path: '/claimDetail',
+          builder: (context, params) => const ClaimDetailWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -370,7 +370,25 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                             hoverColor: Colors.transparent,
                                             highlightColor: Colors.transparent,
                                             onTap: () async {
-                                              context.pushNamed('ClaimList');
+                                              context.pushNamed(
+                                                'ClaimList',
+                                                queryParameters: {
+                                                  'id': serializeParam(
+                                                    valueOrDefault<String>(
+                                                      StaffInfoCall.staffID(
+                                                        columnStaffInfoResponse
+                                                            .jsonBody,
+                                                      ),
+                                                      'staffID',
+                                                    ),
+                                                    ParamType.String,
+                                                  ),
+                                                  'year': serializeParam(
+                                                    '2023',
+                                                    ParamType.String,
+                                                  ),
+                                                }.withoutNulls,
+                                              );
                                             },
                                             child: Container(
                                               width: 64.0,

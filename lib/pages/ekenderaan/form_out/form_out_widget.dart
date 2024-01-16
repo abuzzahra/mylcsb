@@ -204,7 +204,7 @@ class _FormOutWidgetState extends State<FormOutWidget>
                           decoration: InputDecoration(
                             labelStyle:
                                 FlutterFlowTheme.of(context).labelMedium,
-                            hintText: 'Maklumat tambahan..',
+                            hintText: 'Catatan',
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(

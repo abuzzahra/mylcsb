@@ -4,25 +4,25 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'car_details_model.dart';
-export 'car_details_model.dart';
+import 'available_model.dart';
+export 'available_model.dart';
 
-class CarDetailsWidget extends StatefulWidget {
-  const CarDetailsWidget({super.key});
+class AvailableWidget extends StatefulWidget {
+  const AvailableWidget({super.key});
 
   @override
-  _CarDetailsWidgetState createState() => _CarDetailsWidgetState();
+  _AvailableWidgetState createState() => _AvailableWidgetState();
 }
 
-class _CarDetailsWidgetState extends State<CarDetailsWidget> {
-  late CarDetailsModel _model;
+class _AvailableWidgetState extends State<AvailableWidget> {
+  late AvailableModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CarDetailsModel());
+    _model = createModel(context, () => AvailableModel());
   }
 
   @override

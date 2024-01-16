@@ -301,7 +301,7 @@ class _FormWidgetState extends State<FormWidget> with TickerProviderStateMixin {
                           decoration: InputDecoration(
                             labelStyle:
                                 FlutterFlowTheme.of(context).labelMedium,
-                            hintText: 'Maklumat tambahan..',
+                            hintText: 'Catatan',
                             hintStyle: FlutterFlowTheme.of(context)
                                 .labelMedium
                                 .override(

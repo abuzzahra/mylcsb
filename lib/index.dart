@@ -24,5 +24,6 @@ export '/pages/ekenderaan/info/info_widget.dart' show InfoWidget;
 export '/pages/ekenderaan/form_out/form_out_widget.dart' show FormOutWidget;
 export '/pages/ekenderaan/info_out/info_out_widget.dart' show InfoOutWidget;
 export '/pages/ekenderaan/scan/scan_widget.dart' show ScanWidget;
-export '/pages/ekenderaan/car_details/car_details_widget.dart'
-    show CarDetailsWidget;
+export '/pages/ekenderaan/available/available_widget.dart' show AvailableWidget;
+export '/pages/ekenderaan/in_used/in_used_widget.dart' show InUsedWidget;
+export '/claim_detail/claim_detail_widget.dart' show ClaimDetailWidget;

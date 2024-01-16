@@ -105,7 +105,12 @@ final parametersBuilderMap =
   'Login3': ParameterData.none(),
   'Dashboard': ParameterData.none(),
   'Profile': ParameterData.none(),
-  'ClaimList': ParameterData.none(),
+  'ClaimList': (data) async => ParameterData(
+        allParams: {
+          'id': getParameter<String>(data, 'id'),
+          'year': getParameter<String>(data, 'year'),
+        },
+      ),
   'Leave': (data) async => ParameterData(
         allParams: {
           'staffID': getParameter<String>(data, 'staffID'),
@@ -142,7 +147,9 @@ final parametersBuilderMap =
           'scannedValue': getParameter<String>(data, 'scannedValue'),
         },
       ),
-  'CarDetails': ParameterData.none(),
+  'Available': ParameterData.none(),
+  'InUsed': ParameterData.none(),
+  'claimDetail': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

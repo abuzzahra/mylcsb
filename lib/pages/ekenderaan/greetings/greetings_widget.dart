@@ -1,3 +1,4 @@
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -7,6 +8,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'greetings_model.dart';
 export 'greetings_model.dart';
 
@@ -23,6 +25,28 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  final animationsMap = {
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: 0.0,
+          end: 1.0,
+        ),
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: const Offset(0.0, 80.0),
+          end: const Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+  };
+
   @override
   void initState() {
     super.initState();
@@ -30,9 +54,15 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
 
     _model.tabBarController = TabController(
       vsync: this,
-      length: 1,
+      length: 2,
       initialIndex: 0,
     )..addListener(() => setState(() {}));
+    setupAnimations(
+      animationsMap.values.where((anim) =>
+          anim.trigger == AnimationTrigger.onActionTrigger ||
+          !anim.applyInitialState),
+      this,
+    );
   }
 
   @override
@@ -452,7 +482,7 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
                     backgroundColor:
                         FlutterFlowTheme.of(context).secondaryBackground,
                     unselectedBackgroundColor:
-                        FlutterFlowTheme.of(context).alternate,
+                        FlutterFlowTheme.of(context).accent2,
                     borderColor: FlutterFlowTheme.of(context).accent3,
                     borderWidth: 1.0,
                     borderRadius: 10.0,
@@ -465,10 +495,13 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
                       Tab(
                         text: 'Sejarah Penggunaan',
                       ),
+                      Tab(
+                        text: 'Senarai Kereta',
+                      ),
                     ],
                     controller: _model.tabBarController,
                     onTap: (i) async {
-                      [() async {}][i]();
+                      [() async {}, () async {}][i]();
                     },
                   ),
                 ),
@@ -834,6 +867,93 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
                                   ),
                                 ),
                               ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      ListView(
+                        padding: EdgeInsets.zero,
+                        scrollDirection: Axis.vertical,
+                        children: [
+                          Container(
+                            width: 100.0,
+                            height: 100.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 12.0, 0.0, 0.0),
+                              child: Container(
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryBackground,
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      blurRadius: 7.0,
+                                      color: Color(0x32171717),
+                                      offset: Offset(0.0, 3.0),
+                                    )
+                                  ],
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.all(12.0),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(0.0),
+                                        child: Image.network(
+                                          'https://images.unsplash.com/photo-1610737241336-371badac3b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+                                          width: 40.0,
+                                          height: 40.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  16.0, 0.0, 0.0, 0.0),
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'CAD 432',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyLarge,
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 4.0, 0.0, 0.0),
+                                                child: Text(
+                                                  'albert@companyname.com',
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .labelSmall,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ).animateOnPageLoad(animationsMap[
+                                  'containerOnPageLoadAnimation']!),
                             ),
                           ),
                         ],
