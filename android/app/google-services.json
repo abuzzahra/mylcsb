@@ -1,0 +1,150 @@
+{
+  "project_info": {
+    "project_number": "833761622900",
+    "project_id": "mylcsb",
+    "storage_bucket": "mylcsb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833761622900:android:9ad8aa51e56123aa5fca21",
+        "android_client_info": {
+          "package_name": "my.com.lcsb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "833761622900-6ujej8jd54v9ed7ivksi30e521r3c3ja.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "my.com.lcsb",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "833761622900-1lsljm06s920thvq4b6m62n4tgj4g2hf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7oB9KerQMBN-Bm75iB2TRNc638Ml98No"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "833761622900-1lsljm06s920thvq4b6m62n4tgj4g2hf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "833761622900-6384h63kc07sg7o7p7a3qb2s5m5v2k58.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "my.com.lcsb"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833761622900:android:23e70901e020e5bd5fca21",
+        "android_client_info": {
+          "package_name": "my.com.lcsb.mylcsb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "833761622900-lgbcm87qtrruappiop6lme9dm4bkn6qb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "my.com.lcsb.mylcsb",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "833761622900-1lsljm06s920thvq4b6m62n4tgj4g2hf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7oB9KerQMBN-Bm75iB2TRNc638Ml98No"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "833761622900-1lsljm06s920thvq4b6m62n4tgj4g2hf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "833761622900-6384h63kc07sg7o7p7a3qb2s5m5v2k58.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "my.com.lcsb"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833761622900:android:8c9c23c7708374d05fca21",
+        "android_client_info": {
+          "package_name": "my.lcsb.com.mylcsb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "833761622900-70hk700cgodfb4821rahd10srd1s69gc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "my.lcsb.com.mylcsb",
+            "certificate_hash": "41ebb5c53b9eb74dcb61d971b84adabab0788b1e"
+          }
+        },
+        {
+          "client_id": "833761622900-en3hjd54h6evrs8o08c8b248djto61s4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "my.lcsb.com.mylcsb",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "833761622900-1lsljm06s920thvq4b6m62n4tgj4g2hf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7oB9KerQMBN-Bm75iB2TRNc638Ml98No"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "833761622900-1lsljm06s920thvq4b6m62n4tgj4g2hf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "833761622900-6384h63kc07sg7o7p7a3qb2s5m5v2k58.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "my.com.lcsb"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
