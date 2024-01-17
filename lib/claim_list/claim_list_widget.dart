@@ -159,105 +159,196 @@ class _ClaimListWidgetState extends State<ClaimListWidget> {
                               Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     16.0, 0.0, 16.0, 0.0),
-                                child: Container(
-                                  width: double.infinity,
-                                  constraints: const BoxConstraints(
-                                    maxWidth: 570.0,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    border: Border.all(
-                                      color: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      width: 2.0,
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    // claimListtoDetail
+
+                                    context.pushNamed(
+                                      'claimDetail',
+                                      queryParameters: {
+                                        'id': serializeParam(
+                                          valueOrDefault<String>(
+                                            claimListItem.claimId,
+                                            'claimid',
+                                          ),
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: Container(
+                                    width: double.infinity,
+                                    constraints: const BoxConstraints(
+                                      maxWidth: 570.0,
                                     ),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        16.0, 12.0, 16.0, 12.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 12.0, 0.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              RichText(
-                                                textScaleFactor:
-                                                    MediaQuery.of(context)
-                                                        .textScaleFactor,
-                                                text: TextSpan(
-                                                  children: [
-                                                    const TextSpan(
-                                                      text: 'Claim ID #: ',
-                                                      style: TextStyle(),
-                                                    ),
-                                                    TextSpan(
-                                                      text: valueOrDefault<
-                                                          String>(
-                                                        claimListItem.claimId,
-                                                        'claimId',
+                                    decoration: BoxDecoration(
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryBackground,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      border: Border.all(
+                                        color: FlutterFlowTheme.of(context)
+                                            .alternate,
+                                        width: 2.0,
+                                      ),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 12.0, 16.0, 12.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 12.0, 0.0),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                RichText(
+                                                  textScaleFactor:
+                                                      MediaQuery.of(context)
+                                                          .textScaleFactor,
+                                                  text: TextSpan(
+                                                    children: [
+                                                      const TextSpan(
+                                                        text: 'Claim ID #: ',
+                                                        style: TextStyle(),
                                                       ),
-                                                      style: TextStyle(
+                                                      TextSpan(
+                                                        text: valueOrDefault<
+                                                            String>(
+                                                          claimListItem.claimId,
+                                                          'claimId',
+                                                        ),
+                                                        style: TextStyle(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .primary,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      )
+                                                    ],
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyLarge
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          fontSize: 13.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 4.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    valueOrDefault<String>(
+                                                      claimListItem.remark,
+                                                      'remark',
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              'Readex Pro',
+                                                          fontSize: 12.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 12.0, 0.0, 0.0),
+                                                  child: Container(
+                                                    height: 32.0,
+                                                    decoration: BoxDecoration(
+                                                      color: FlutterFlowTheme
+                                                              .of(context)
+                                                          .primaryBackground,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              12.0),
+                                                      border: Border.all(
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primary,
-                                                        fontWeight:
-                                                            FontWeight.bold,
+                                                                .alternate,
+                                                        width: 2.0,
                                                       ),
-                                                    )
-                                                  ],
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyLarge
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        fontSize: 13.0,
+                                                    ),
+                                                    child: Align(
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                              0.0, 0.0),
+                                                      child: Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    7.0,
+                                                                    0.0,
+                                                                    7.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          valueOrDefault<
+                                                              String>(
+                                                            claimListItem.year,
+                                                            'year',
+                                                          ),
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .labelMedium,
+                                                        ),
                                                       ),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 4.0, 0.0, 0.0),
-                                                child: Text(
-                                                  valueOrDefault<String>(
-                                                    claimListItem.remark,
-                                                    'remark',
+                                                    ),
                                                   ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Column(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 12.0),
+                                                child: Text(
+                                                  'RM 5000.00',
+                                                  textAlign: TextAlign.end,
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .labelMedium
+                                                      .headlineSmall
                                                       .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        fontSize: 12.0,
+                                                        fontFamily: 'Outfit',
+                                                        fontSize: 16.0,
                                                       ),
                                                 ),
                                               ),
                                               Padding(
                                                 padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        0.0, 12.0, 0.0, 0.0),
+                                                        0.0, 10.0, 0.0, 0.0),
                                                 child: Container(
                                                   height: 32.0,
                                                   decoration: BoxDecoration(
                                                     color: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryBackground,
+                                                        .accent1,
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             12.0),
@@ -265,7 +356,7 @@ class _ClaimListWidgetState extends State<ClaimListWidget> {
                                                       color:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .alternate,
+                                                              .primary,
                                                       width: 2.0,
                                                     ),
                                                   ),
@@ -277,19 +368,28 @@ class _ClaimListWidgetState extends State<ClaimListWidget> {
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  7.0,
+                                                                  12.0,
                                                                   0.0,
-                                                                  7.0,
+                                                                  12.0,
                                                                   0.0),
                                                       child: Text(
                                                         valueOrDefault<String>(
-                                                          claimListItem.year,
-                                                          'year',
+                                                          claimListItem.status,
+                                                          'status',
                                                         ),
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primary,
+                                                                  fontSize:
+                                                                      12.0,
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
@@ -297,82 +397,8 @@ class _ClaimListWidgetState extends State<ClaimListWidget> {
                                               ),
                                             ],
                                           ),
-                                        ),
-                                        Column(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.end,
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 0.0, 12.0),
-                                              child: Text(
-                                                'RM 5000.00',
-                                                textAlign: TextAlign.end,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineSmall
-                                                        .override(
-                                                          fontFamily: 'Outfit',
-                                                          fontSize: 16.0,
-                                                        ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: const EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 10.0, 0.0, 0.0),
-                                              child: Container(
-                                                height: 32.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .accent1,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          12.0),
-                                                  border: Border.all(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primary,
-                                                    width: 2.0,
-                                                  ),
-                                                ),
-                                                child: Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(12.0, 0.0,
-                                                                12.0, 0.0),
-                                                    child: Text(
-                                                      valueOrDefault<String>(
-                                                        claimListItem.status,
-                                                        'status',
-                                                      ),
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Readex Pro',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primary,
-                                                                fontSize: 12.0,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),

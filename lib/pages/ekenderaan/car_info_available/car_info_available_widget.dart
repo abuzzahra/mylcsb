@@ -4,25 +4,25 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'available_model.dart';
-export 'available_model.dart';
+import 'car_info_available_model.dart';
+export 'car_info_available_model.dart';
 
-class AvailableWidget extends StatefulWidget {
-  const AvailableWidget({super.key});
+class CarInfoAvailableWidget extends StatefulWidget {
+  const CarInfoAvailableWidget({super.key});
 
   @override
-  _AvailableWidgetState createState() => _AvailableWidgetState();
+  _CarInfoAvailableWidgetState createState() => _CarInfoAvailableWidgetState();
 }
 
-class _AvailableWidgetState extends State<AvailableWidget> {
-  late AvailableModel _model;
+class _CarInfoAvailableWidgetState extends State<CarInfoAvailableWidget> {
+  late CarInfoAvailableModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AvailableModel());
+    _model = createModel(context, () => CarInfoAvailableModel());
   }
 
   @override
@@ -100,7 +100,12 @@ class _AvailableWidgetState extends State<AvailableWidget> {
                           const EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 0.0, 0.0),
                       child: Text(
                         'CDD 789',
-                        style: FlutterFlowTheme.of(context).headlineMedium,
+                        style: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .override(
+                              fontFamily: 'Outfit',
+                              fontSize: 18.0,
+                            ),
                       ),
                     ),
                     Padding(
@@ -121,7 +126,10 @@ class _AvailableWidgetState extends State<AvailableWidget> {
                           const EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 4.0),
                       child: Text(
                         'The best of all 3 worlds, Row & Flow offers high intensity rowing and strength intervals followed by athletic based yoga sure to enhance flexible and clear the mind.',
-                        style: FlutterFlowTheme.of(context).labelLarge,
+                        style: FlutterFlowTheme.of(context).labelLarge.override(
+                              fontFamily: 'Readex Pro',
+                              fontSize: 14.0,
+                            ),
                       ),
                     ),
                     Divider(
@@ -185,7 +193,7 @@ class _AvailableWidgetState extends State<AvailableWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primary,
-                                                  fontSize: 14.0,
+                                                  fontSize: 12.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -194,7 +202,11 @@ class _AvailableWidgetState extends State<AvailableWidget> {
                                       Text(
                                         'Seminggu lepas',
                                         style: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              fontSize: 12.0,
+                                            ),
                                       ),
                                     ],
                                   ),
@@ -215,7 +227,11 @@ class _AvailableWidgetState extends State<AvailableWidget> {
                                     child: Text(
                                       'Ladang Selama Lanar',
                                       style: FlutterFlowTheme.of(context)
-                                          .labelMedium,
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 13.0,
+                                          ),
                                     ),
                                   ),
                                 ],
@@ -237,7 +253,7 @@ class _AvailableWidgetState extends State<AvailableWidget> {
                 },
                 text: 'Mula pandu',
                 options: FFButtonOptions(
-                  width: 300.0,
+                  width: 250.0,
                   height: 50.0,
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                   iconPadding:
@@ -245,13 +261,14 @@ class _AvailableWidgetState extends State<AvailableWidget> {
                   color: FlutterFlowTheme.of(context).primary,
                   textStyle: FlutterFlowTheme.of(context).titleSmall.override(
                         fontFamily: 'Readex Pro',
-                        color: Colors.white,
+                        color: FlutterFlowTheme.of(context).alternate,
                       ),
                   elevation: 3.0,
                   borderSide: const BorderSide(
                     color: Colors.transparent,
                     width: 1.0,
                   ),
+                  borderRadius: BorderRadius.circular(40.0),
                 ),
               ),
             ),

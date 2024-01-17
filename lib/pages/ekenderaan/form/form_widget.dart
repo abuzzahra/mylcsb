@@ -108,7 +108,19 @@ class _FormWidgetState extends State<FormWidget> with TickerProviderStateMixin {
               size: 30.0,
             ),
             onPressed: () async {
-              context.pushNamed('Greetings');
+              context.pushNamed(
+                'Greetings',
+                queryParameters: {
+                  'id': serializeParam(
+                    '',
+                    ParamType.String,
+                  ),
+                  'carID': serializeParam(
+                    '',
+                    ParamType.String,
+                  ),
+                }.withoutNulls,
+              );
             },
           ),
           title: Text(
@@ -139,6 +151,7 @@ class _FormWidgetState extends State<FormWidget> with TickerProviderStateMixin {
                           FlutterFlowTheme.of(context).headlineMedium.override(
                                 fontFamily: 'Outfit',
                                 fontSize: 20.0,
+                                fontWeight: FontWeight.w800,
                               ),
                     ),
                   ),

@@ -569,6 +569,114 @@ class ClaimByClaimIdCall {
   }
 }
 
+class ClaimByClaimDetailCall {
+  static Future<ApiCallResponse> call({
+    String? id = 'id',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'claimByClaimDetail',
+      apiUrl: 'https://api.lcsb.com.my/api/claim/byClaimDetail/$id',
+      callType: ApiCallType.GET,
+      headers: {
+        'X-API-Key': '44932d31-tzlt-3500-kyzm-8fe08d0df42b',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      alwaysAllowBody: false,
+    );
+  }
+
+  static List<String>? claimDetailId(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].claimDetailId''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? claimId(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].claimId''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? claimTypeId(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].claimTypeId''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? claimTypename(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].claimTypename''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? date(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].date''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? position(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].position''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? remark(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].remark''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? noInvoice(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].noInvoice''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? imageurl(dynamic response) => getJsonField(
+        response,
+        r'''$[:].imageurl''',
+        true,
+      ) as List?;
+  static List<int>? totalRate(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].totalRate''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
+}
+
 class ApiPagingParams {
   int nextPageNumber = 0;
   int numItems = 0;

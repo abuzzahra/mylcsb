@@ -102,7 +102,19 @@ class _FormOutWidgetState extends State<FormOutWidget>
               size: 30.0,
             ),
             onPressed: () async {
-              context.pushNamed('Greetings');
+              context.pushNamed(
+                'Greetings',
+                queryParameters: {
+                  'id': serializeParam(
+                    '',
+                    ParamType.String,
+                  ),
+                  'carID': serializeParam(
+                    '',
+                    ParamType.String,
+                  ),
+                }.withoutNulls,
+              );
             },
           ),
           title: Text(
@@ -133,6 +145,7 @@ class _FormOutWidgetState extends State<FormOutWidget>
                           FlutterFlowTheme.of(context).headlineMedium.override(
                                 fontFamily: 'Outfit',
                                 fontSize: 20.0,
+                                fontWeight: FontWeight.w800,
                               ),
                     ),
                   ),

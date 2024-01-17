@@ -3,7 +3,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
 
+import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class ClaimStruct extends FFFirebaseStruct {
@@ -22,6 +24,13 @@ class ClaimStruct extends FFFirebaseStruct {
     String? remark,
     String? time,
     String? pvno,
+    String? claimDetailId,
+    String? claimTypeId,
+    String? claimTypename,
+    String? position,
+    double? totalRate,
+    String? noInvoice,
+    String? imageurl,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
   })  : _claimId = claimId,
         _date = date,
@@ -37,6 +46,13 @@ class ClaimStruct extends FFFirebaseStruct {
         _remark = remark,
         _time = time,
         _pvno = pvno,
+        _claimDetailId = claimDetailId,
+        _claimTypeId = claimTypeId,
+        _claimTypename = claimTypename,
+        _position = position,
+        _totalRate = totalRate,
+        _noInvoice = noInvoice,
+        _imageurl = imageurl,
         super(firestoreUtilData);
 
   // "claimId" field.
@@ -123,6 +139,49 @@ class ClaimStruct extends FFFirebaseStruct {
   set pvno(String? val) => _pvno = val;
   bool hasPvno() => _pvno != null;
 
+  // "claimDetailId" field.
+  String? _claimDetailId;
+  String get claimDetailId => _claimDetailId ?? '';
+  set claimDetailId(String? val) => _claimDetailId = val;
+  bool hasClaimDetailId() => _claimDetailId != null;
+
+  // "claimTypeId" field.
+  String? _claimTypeId;
+  String get claimTypeId => _claimTypeId ?? '';
+  set claimTypeId(String? val) => _claimTypeId = val;
+  bool hasClaimTypeId() => _claimTypeId != null;
+
+  // "claimTypename" field.
+  String? _claimTypename;
+  String get claimTypename => _claimTypename ?? '';
+  set claimTypename(String? val) => _claimTypename = val;
+  bool hasClaimTypename() => _claimTypename != null;
+
+  // "position" field.
+  String? _position;
+  String get position => _position ?? '';
+  set position(String? val) => _position = val;
+  bool hasPosition() => _position != null;
+
+  // "totalRate" field.
+  double? _totalRate;
+  double get totalRate => _totalRate ?? 0.0;
+  set totalRate(double? val) => _totalRate = val;
+  void incrementTotalRate(double amount) => _totalRate = totalRate + amount;
+  bool hasTotalRate() => _totalRate != null;
+
+  // "noInvoice" field.
+  String? _noInvoice;
+  String get noInvoice => _noInvoice ?? '';
+  set noInvoice(String? val) => _noInvoice = val;
+  bool hasNoInvoice() => _noInvoice != null;
+
+  // "imageurl" field.
+  String? _imageurl;
+  String get imageurl => _imageurl ?? '';
+  set imageurl(String? val) => _imageurl = val;
+  bool hasImageurl() => _imageurl != null;
+
   static ClaimStruct fromMap(Map<String, dynamic> data) => ClaimStruct(
         claimId: data['claimId'] as String?,
         date: data['date'] as String?,
@@ -138,6 +197,13 @@ class ClaimStruct extends FFFirebaseStruct {
         remark: data['remark'] as String?,
         time: data['time'] as String?,
         pvno: data['pvno'] as String?,
+        claimDetailId: data['claimDetailId'] as String?,
+        claimTypeId: data['claimTypeId'] as String?,
+        claimTypename: data['claimTypename'] as String?,
+        position: data['position'] as String?,
+        totalRate: castToType<double>(data['totalRate']),
+        noInvoice: data['noInvoice'] as String?,
+        imageurl: data['imageurl'] as String?,
       );
 
   static ClaimStruct? maybeFromMap(dynamic data) =>
@@ -158,6 +224,13 @@ class ClaimStruct extends FFFirebaseStruct {
         'remark': _remark,
         'time': _time,
         'pvno': _pvno,
+        'claimDetailId': _claimDetailId,
+        'claimTypeId': _claimTypeId,
+        'claimTypename': _claimTypename,
+        'position': _position,
+        'totalRate': _totalRate,
+        'noInvoice': _noInvoice,
+        'imageurl': _imageurl,
       }.withoutNulls;
 
   @override
@@ -216,6 +289,34 @@ class ClaimStruct extends FFFirebaseStruct {
         ),
         'pvno': serializeParam(
           _pvno,
+          ParamType.String,
+        ),
+        'claimDetailId': serializeParam(
+          _claimDetailId,
+          ParamType.String,
+        ),
+        'claimTypeId': serializeParam(
+          _claimTypeId,
+          ParamType.String,
+        ),
+        'claimTypename': serializeParam(
+          _claimTypename,
+          ParamType.String,
+        ),
+        'position': serializeParam(
+          _position,
+          ParamType.String,
+        ),
+        'totalRate': serializeParam(
+          _totalRate,
+          ParamType.double,
+        ),
+        'noInvoice': serializeParam(
+          _noInvoice,
+          ParamType.String,
+        ),
+        'imageurl': serializeParam(
+          _imageurl,
           ParamType.String,
         ),
       }.withoutNulls;
@@ -292,6 +393,41 @@ class ClaimStruct extends FFFirebaseStruct {
           ParamType.String,
           false,
         ),
+        claimDetailId: deserializeParam(
+          data['claimDetailId'],
+          ParamType.String,
+          false,
+        ),
+        claimTypeId: deserializeParam(
+          data['claimTypeId'],
+          ParamType.String,
+          false,
+        ),
+        claimTypename: deserializeParam(
+          data['claimTypename'],
+          ParamType.String,
+          false,
+        ),
+        position: deserializeParam(
+          data['position'],
+          ParamType.String,
+          false,
+        ),
+        totalRate: deserializeParam(
+          data['totalRate'],
+          ParamType.double,
+          false,
+        ),
+        noInvoice: deserializeParam(
+          data['noInvoice'],
+          ParamType.String,
+          false,
+        ),
+        imageurl: deserializeParam(
+          data['imageurl'],
+          ParamType.String,
+          false,
+        ),
       );
 
   @override
@@ -313,7 +449,14 @@ class ClaimStruct extends FFFirebaseStruct {
         period == other.period &&
         remark == other.remark &&
         time == other.time &&
-        pvno == other.pvno;
+        pvno == other.pvno &&
+        claimDetailId == other.claimDetailId &&
+        claimTypeId == other.claimTypeId &&
+        claimTypename == other.claimTypename &&
+        position == other.position &&
+        totalRate == other.totalRate &&
+        noInvoice == other.noInvoice &&
+        imageurl == other.imageurl;
   }
 
   @override
@@ -331,7 +474,14 @@ class ClaimStruct extends FFFirebaseStruct {
         period,
         remark,
         time,
-        pvno
+        pvno,
+        claimDetailId,
+        claimTypeId,
+        claimTypename,
+        position,
+        totalRate,
+        noInvoice,
+        imageurl
       ]);
 }
 
@@ -350,6 +500,13 @@ ClaimStruct createClaimStruct({
   String? remark,
   String? time,
   String? pvno,
+  String? claimDetailId,
+  String? claimTypeId,
+  String? claimTypename,
+  String? position,
+  double? totalRate,
+  String? noInvoice,
+  String? imageurl,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
@@ -370,6 +527,13 @@ ClaimStruct createClaimStruct({
       remark: remark,
       time: time,
       pvno: pvno,
+      claimDetailId: claimDetailId,
+      claimTypeId: claimTypeId,
+      claimTypename: claimTypename,
+      position: position,
+      totalRate: totalRate,
+      noInvoice: noInvoice,
+      imageurl: imageurl,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,

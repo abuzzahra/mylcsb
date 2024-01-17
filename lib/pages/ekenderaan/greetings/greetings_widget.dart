@@ -1,3 +1,4 @@
+import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
@@ -13,7 +14,14 @@ import 'greetings_model.dart';
 export 'greetings_model.dart';
 
 class GreetingsWidget extends StatefulWidget {
-  const GreetingsWidget({super.key});
+  const GreetingsWidget({
+    super.key,
+    required this.id,
+    String? carID,
+  })  : carID = carID ?? '0001';
+
+  final String? id;
+  final String carID;
 
   @override
   _GreetingsWidgetState createState() => _GreetingsWidgetState();
@@ -310,10 +318,14 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
                                                     children: [
                                                       Text(
                                                         'Jumlah',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .headlineMedium,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .headlineMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Outfit',
+                                                              fontSize: 20.0,
+                                                            ),
                                                       ),
                                                       Padding(
                                                         padding:
@@ -327,7 +339,12 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
                                                           '3 Penggunaan',
                                                           style: FlutterFlowTheme
                                                                   .of(context)
-                                                              .labelMedium,
+                                                              .labelMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                fontSize: 12.0,
+                                                              ),
                                                         ),
                                                       ),
                                                     ],
@@ -384,10 +401,14 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
                                                     children: [
                                                       Text(
                                                         'Belum Selesai',
-                                                        style:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .headlineMedium,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .headlineMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Outfit',
+                                                              fontSize: 20.0,
+                                                            ),
                                                       ),
                                                       Padding(
                                                         padding:
@@ -479,11 +500,9 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
                     labelColor: FlutterFlowTheme.of(context).primaryText,
                     unselectedLabelColor:
                         FlutterFlowTheme.of(context).secondaryText,
-                    backgroundColor:
-                        FlutterFlowTheme.of(context).secondaryBackground,
-                    unselectedBackgroundColor:
-                        FlutterFlowTheme.of(context).accent2,
-                    borderColor: FlutterFlowTheme.of(context).accent3,
+                    backgroundColor: FlutterFlowTheme.of(context).accent1,
+                    unselectedBackgroundColor: const Color(0x87A4D6BF),
+                    borderColor: FlutterFlowTheme.of(context).alternate,
                     borderWidth: 1.0,
                     borderRadius: 10.0,
                     elevation: 0.0,
@@ -493,10 +512,16 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
                         const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 12.0),
                     tabs: const [
                       Tab(
-                        text: 'Sejarah Penggunaan',
+                        text: 'Sejarah',
+                        icon: Icon(
+                          Icons.history_rounded,
+                        ),
                       ),
                       Tab(
-                        text: 'Senarai Kereta',
+                        text: ' Kereta',
+                        icon: Icon(
+                          Icons.directions_car_sharp,
+                        ),
                       ),
                     ],
                     controller: _model.tabBarController,
@@ -513,39 +538,208 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
                         children: [
                           Align(
                             alignment: const AlignmentDirectional(0.0, 0.0),
-                            child: ListView(
-                              padding: EdgeInsets.zero,
-                              scrollDirection: Axis.vertical,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 12.0, 16.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      boxShadow: const [
-                                        BoxShadow(
-                                          blurRadius: 3.0,
-                                          color: Color(0x25000000),
-                                          offset: Offset(0.0, 2.0),
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(8.0),
+                            child: FutureBuilder<ApiCallResponse>(
+                              future: CarDetailByPlateNoCall.call(),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: CircularProgressIndicator(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
+                                          FlutterFlowTheme.of(context).primary,
+                                        ),
+                                      ),
                                     ),
-                                    child: Padding(
+                                  );
+                                }
+                                final listViewCarDetailByPlateNoResponse =
+                                    snapshot.data!;
+                                return ListView(
+                                  padding: EdgeInsets.zero,
+                                  scrollDirection: Axis.vertical,
+                                  children: [
+                                    Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
-                                      child: InkWell(
-                                        splashColor: Colors.transparent,
-                                        focusColor: Colors.transparent,
-                                        hoverColor: Colors.transparent,
-                                        highlightColor: Colors.transparent,
-                                        onTap: () async {
-                                          context.pushNamed('FormOut');
-                                        },
+                                          16.0, 12.0, 16.0, 0.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          boxShadow: const [
+                                            BoxShadow(
+                                              blurRadius: 3.0,
+                                              color: Color(0x25000000),
+                                              offset: Offset(0.0, 2.0),
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 5.0, 0.0, 0.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              context.pushNamed('FormOut');
+                                            },
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Padding(
+                                                  padding: const EdgeInsets.all(4.0),
+                                                  child: Container(
+                                                    width: 4.0,
+                                                    height: 90.0,
+                                                    decoration: BoxDecoration(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .error,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              4.0),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(12.0, 12.0,
+                                                          16.0, 12.0),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Card(
+                                                        clipBehavior: Clip
+                                                            .antiAliasWithSaveLayer,
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        elevation: 1.0,
+                                                        shape:
+                                                            RoundedRectangleBorder(
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      8.0),
+                                                        ),
+                                                        child: Row(
+                                                          mainAxisSize:
+                                                              MainAxisSize.max,
+                                                          children: [
+                                                            Padding(
+                                                              padding:
+                                                                  const EdgeInsetsDirectional
+                                                                      .fromSTEB(
+                                                                          0.0,
+                                                                          0.0,
+                                                                          5.0,
+                                                                          0.0),
+                                                              child: Icon(
+                                                                Icons
+                                                                    .info_sharp,
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .secondaryText,
+                                                                size: 24.0,
+                                                              ),
+                                                            ),
+                                                            Text(
+                                                              'CDK 222',
+                                                              style: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .headlineMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Outfit',
+                                                                    fontSize:
+                                                                        18.0,
+                                                                  ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    4.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          'Ladang Telang',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .labelMedium,
+                                                        ),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    4.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        child: Text(
+                                                          '20/2/2024',
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Readex Pro',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .error,
+                                                              ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 12.0, 16.0, 0.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          boxShadow: const [
+                                            BoxShadow(
+                                              blurRadius: 3.0,
+                                              color: Color(0x25000000),
+                                              offset: Offset(0.0, 2.0),
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
+                                        ),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
@@ -557,7 +751,7 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
                                                 decoration: BoxDecoration(
                                                   color: FlutterFlowTheme.of(
                                                           context)
-                                                      .error,
+                                                      .secondaryText,
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           4.0),
@@ -573,52 +767,15 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.start,
                                                 children: [
-                                                  Card(
-                                                    clipBehavior: Clip
-                                                        .antiAliasWithSaveLayer,
-                                                    color: FlutterFlowTheme.of(
+                                                  Text(
+                                                    'CDK 222',
+                                                    style: FlutterFlowTheme.of(
                                                             context)
-                                                        .secondaryBackground,
-                                                    elevation: 1.0,
-                                                    shape:
-                                                        RoundedRectangleBorder(
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              8.0),
-                                                    ),
-                                                    child: Row(
-                                                      mainAxisSize:
-                                                          MainAxisSize.max,
-                                                      children: [
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsetsDirectional
-                                                                  .fromSTEB(
-                                                                      0.0,
-                                                                      0.0,
-                                                                      5.0,
-                                                                      0.0),
-                                                          child: Icon(
-                                                            Icons.info_sharp,
-                                                            color: FlutterFlowTheme
-                                                                    .of(context)
-                                                                .secondaryText,
-                                                            size: 24.0,
-                                                          ),
+                                                        .headlineMedium
+                                                        .override(
+                                                          fontFamily: 'Outfit',
+                                                          fontSize: 18.0,
                                                         ),
-                                                        Text(
-                                                          'CDK 222',
-                                                          style: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .headlineMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Outfit',
-                                                                fontSize: 18.0,
-                                                              ),
-                                                        ),
-                                                      ],
-                                                    ),
                                                   ),
                                                   Padding(
                                                     padding:
@@ -626,7 +783,7 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
                                                             .fromSTEB(0.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      'Ladang Telang',
+                                                      'Ladang Selama Lanar',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -639,7 +796,7 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
                                                             .fromSTEB(0.0, 4.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      '20/2/2024',
+                                                      '21/12/2023',
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -649,7 +806,7 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
                                                                     'Readex Pro',
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .error,
+                                                                    .secondaryText,
                                                               ),
                                                     ),
                                                   ),
@@ -660,213 +817,55 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 12.0, 16.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      boxShadow: const [
-                                        BoxShadow(
-                                          blurRadius: 3.0,
-                                          color: Color(0x25000000),
-                                          offset: Offset(0.0, 2.0),
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(4.0),
-                                          child: Container(
-                                            width: 4.0,
-                                            height: 90.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              borderRadius:
-                                                  BorderRadius.circular(4.0),
-                                            ),
-                                          ),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          16.0, 12.0, 16.0, 0.0),
+                                      child: Container(
+                                        width:
+                                            MediaQuery.sizeOf(context).width *
+                                                1.0,
+                                        decoration: BoxDecoration(
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryBackground,
+                                          boxShadow: const [
+                                            BoxShadow(
+                                              blurRadius: 3.0,
+                                              color: Color(0x25000000),
+                                              offset: Offset(0.0, 2.0),
+                                            )
+                                          ],
+                                          borderRadius:
+                                              BorderRadius.circular(8.0),
                                         ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 12.0, 16.0, 12.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                'CDK 222',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineMedium
-                                                        .override(
-                                                          fontFamily: 'Outfit',
-                                                          fontSize: 18.0,
-                                                        ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 4.0, 0.0, 0.0),
-                                                child: Text(
-                                                  'Ladang Selama Lanar',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 4.0, 0.0, 0.0),
-                                                child: Text(
-                                                  '21/12/2023',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 12.0, 16.0, 0.0),
-                                  child: Container(
-                                    width:
-                                        MediaQuery.sizeOf(context).width * 1.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      boxShadow: const [
-                                        BoxShadow(
-                                          blurRadius: 3.0,
-                                          color: Color(0x25000000),
-                                          offset: Offset(0.0, 2.0),
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(8.0),
-                                    ),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(4.0),
-                                          child: Container(
-                                            width: 4.0,
-                                            height: 90.0,
-                                            decoration: BoxDecoration(
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
-                                              borderRadius:
-                                                  BorderRadius.circular(4.0),
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  12.0, 12.0, 16.0, 12.0),
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                'CDE 777',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .headlineMedium
-                                                        .override(
-                                                          fontFamily: 'Outfit',
-                                                          fontSize: 18.0,
-                                                        ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 4.0, 0.0, 0.0),
-                                                child: Text(
-                                                  'Ladang Selama Lanar',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium,
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        0.0, 4.0, 0.0, 0.0),
-                                                child: Text(
-                                                  '2/9/2023',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily:
-                                                            'Readex Pro',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primary,
-                                                      ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 90.0, 0.0, 0.0),
-                                  child: Wrap(
-                                    spacing: 0.0,
-                                    runSpacing: 0.0,
-                                    alignment: WrapAlignment.start,
-                                    crossAxisAlignment:
-                                        WrapCrossAlignment.start,
-                                    direction: Axis.horizontal,
-                                    runAlignment: WrapAlignment.start,
-                                    verticalDirection: VerticalDirection.down,
-                                    clipBehavior: Clip.none,
-                                    children: [
-                                      wrapWithModel(
-                                        model: _model.navBar1Model,
-                                        updateCallback: () => setState(() {}),
-                                        child: const NavBar1Widget(),
                                       ),
-                                    ],
-                                  ),
-                                ),
-                              ],
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 145.0, 0.0, 0.0),
+                                      child: Wrap(
+                                        spacing: 0.0,
+                                        runSpacing: 0.0,
+                                        alignment: WrapAlignment.start,
+                                        crossAxisAlignment:
+                                            WrapCrossAlignment.start,
+                                        direction: Axis.horizontal,
+                                        runAlignment: WrapAlignment.start,
+                                        verticalDirection:
+                                            VerticalDirection.down,
+                                        clipBehavior: Clip.none,
+                                        children: [
+                                          wrapWithModel(
+                                            model: _model.navBar1Model,
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            child: const NavBar1Widget(),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
                             ),
                           ),
                         ],
@@ -910,7 +909,7 @@ class _GreetingsWidgetState extends State<GreetingsWidget>
                                         borderRadius:
                                             BorderRadius.circular(0.0),
                                         child: Image.network(
-                                          'https://images.unsplash.com/photo-1610737241336-371badac3b66?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+                                          'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHwyMnx8Y2FyfGVufDB8fHx8MTcwNTQxNTU2MXww&ixlib=rb-4.0.3&q=80&w=1080',
                                           width: 40.0,
                                           height: 40.0,
                                           fit: BoxFit.cover,

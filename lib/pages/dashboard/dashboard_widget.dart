@@ -279,234 +279,37 @@ class _DashboardWidgetState extends State<DashboardWidget>
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 8.0, 0.0, 12.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed('Greetings');
-                              },
-                              child: SingleChildScrollView(
-                                scrollDirection: Axis.horizontal,
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 12.0, 0.0, 12.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed(
-                                                'Leave',
-                                                queryParameters: {
-                                                  'staffID': serializeParam(
-                                                    StaffInfoCall.staffID(
-                                                      columnStaffInfoResponse
-                                                          .jsonBody,
-                                                    ),
-                                                    ParamType.String,
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 12.0, 0.0, 12.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            context.pushNamed(
+                                              'Leave',
+                                              queryParameters: {
+                                                'staffID': serializeParam(
+                                                  StaffInfoCall.staffID(
+                                                    columnStaffInfoResponse
+                                                        .jsonBody,
                                                   ),
-                                                }.withoutNulls,
-                                              );
-                                            },
-                                            child: Container(
-                                              width: 64.0,
-                                              height: 64.0,
-                                              decoration: const BoxDecoration(
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: const Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: FaIcon(
-                                                  FontAwesomeIcons.calendarDay,
-                                                  color: Color(0xFF0A69AF),
-                                                  size: 28.0,
+                                                  ParamType.String,
                                                 ),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 0.0),
-                                            child: Text(
-                                              'Cuti',
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Lexend Deca',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    fontSize: 12.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 12.0, 0.0, 12.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed(
-                                                'ClaimList',
-                                                queryParameters: {
-                                                  'id': serializeParam(
-                                                    valueOrDefault<String>(
-                                                      StaffInfoCall.staffID(
-                                                        columnStaffInfoResponse
-                                                            .jsonBody,
-                                                      ),
-                                                      'staffID',
-                                                    ),
-                                                    ParamType.String,
-                                                  ),
-                                                  'year': serializeParam(
-                                                    '2023',
-                                                    ParamType.String,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            },
-                                            child: Container(
-                                              width: 64.0,
-                                              height: 64.0,
-                                              decoration: const BoxDecoration(
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: FaIcon(
-                                                  FontAwesomeIcons
-                                                      .fileInvoiceDollar,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .success,
-                                                  size: 28.0,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 0.0),
-                                            child: Text(
-                                              'Tuntutan',
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Lexend Deca',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    fontSize: 12.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 12.0, 0.0, 12.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed(
-                                                'Outstation',
-                                                queryParameters: {
-                                                  'staffID': serializeParam(
-                                                    StaffInfoCall.staffID(
-                                                      columnStaffInfoResponse
-                                                          .jsonBody,
-                                                    ),
-                                                    ParamType.String,
-                                                  ),
-                                                }.withoutNulls,
-                                              );
-                                            },
-                                            child: Container(
-                                              width: 64.0,
-                                              height: 64.0,
-                                              decoration: const BoxDecoration(
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: const Align(
-                                                alignment: AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: FaIcon(
-                                                  FontAwesomeIcons.briefcase,
-                                                  color: Color(0xAB622911),
-                                                  size: 28.0,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 0.0),
-                                            child: Text(
-                                              'K. Luar',
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Lexend Deca',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    fontSize: 12.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 12.0, 0.0, 12.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Container(
+                                              }.withoutNulls,
+                                            );
+                                          },
+                                          child: Container(
                                             width: 64.0,
                                             height: 64.0,
                                             decoration: const BoxDecoration(
@@ -516,107 +319,305 @@ class _DashboardWidgetState extends State<DashboardWidget>
                                               alignment: AlignmentDirectional(
                                                   0.0, 0.0),
                                               child: FaIcon(
-                                                FontAwesomeIcons.userClock,
-                                                color: Color(0xEBDC5217),
+                                                FontAwesomeIcons.calendarDay,
+                                                color: Color(0xFF0A69AF),
                                                 size: 28.0,
                                               ),
                                             ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 0.0),
-                                            child: Text(
-                                              'Kehadiran',
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Lexend Deca',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    fontSize: 12.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: Text(
+                                            'Cuti',
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  fontSize: 12.0,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 12.0, 0.0, 12.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            context.pushNamed(
+                                              'ClaimList',
+                                              queryParameters: {
+                                                'id': serializeParam(
+                                                  valueOrDefault<String>(
+                                                    StaffInfoCall.staffID(
+                                                      columnStaffInfoResponse
+                                                          .jsonBody,
+                                                    ),
+                                                    'staffID',
                                                   ),
+                                                  ParamType.String,
+                                                ),
+                                                'year': serializeParam(
+                                                  '2023',
+                                                  ParamType.String,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          },
+                                          child: Container(
+                                            width: 64.0,
+                                            height: 64.0,
+                                            decoration: const BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: FaIcon(
+                                                FontAwesomeIcons
+                                                    .fileInvoiceDollar,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .success,
+                                                size: 28.0,
+                                              ),
                                             ),
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: Text(
+                                            'Tuntutan',
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  fontSize: 12.0,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          12.0, 12.0, 0.0, 12.0),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              context.pushNamed('Greetings');
-                                            },
-                                            child: Container(
-                                              width: 64.0,
-                                              height: 64.0,
-                                              decoration: const BoxDecoration(
-                                                shape: BoxShape.circle,
-                                              ),
-                                              child: Align(
-                                                alignment: const AlignmentDirectional(
-                                                    0.0, 0.0),
-                                                child: InkWell(
-                                                  splashColor:
-                                                      Colors.transparent,
-                                                  focusColor:
-                                                      Colors.transparent,
-                                                  hoverColor:
-                                                      Colors.transparent,
-                                                  highlightColor:
-                                                      Colors.transparent,
-                                                  onTap: () async {
-                                                    context
-                                                        .pushNamed('Greetings');
-                                                  },
-                                                  child: const Icon(
-                                                    Icons.directions_car_sharp,
-                                                    color: Color(0xFF800000),
-                                                    size: 33.0,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 12.0, 0.0, 12.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            context.pushNamed(
+                                              'Outstation',
+                                              queryParameters: {
+                                                'staffID': serializeParam(
+                                                  StaffInfoCall.staffID(
+                                                    columnStaffInfoResponse
+                                                        .jsonBody,
                                                   ),
+                                                  ParamType.String,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          },
+                                          child: Container(
+                                            width: 64.0,
+                                            height: 64.0,
+                                            decoration: const BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: const Align(
+                                              alignment: AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: FaIcon(
+                                                FontAwesomeIcons.briefcase,
+                                                color: Color(0xAB622911),
+                                                size: 28.0,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: Text(
+                                            'K. Luar',
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  fontSize: 12.0,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 12.0, 0.0, 12.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Container(
+                                          width: 64.0,
+                                          height: 64.0,
+                                          decoration: const BoxDecoration(
+                                            shape: BoxShape.circle,
+                                          ),
+                                          child: const Align(
+                                            alignment:
+                                                AlignmentDirectional(0.0, 0.0),
+                                            child: FaIcon(
+                                              FontAwesomeIcons.userClock,
+                                              color: Color(0xEBDC5217),
+                                              size: 28.0,
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: Text(
+                                            'Kehadiran',
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  fontSize: 12.0,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                        12.0, 12.0, 0.0, 12.0),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            context.pushNamed(
+                                              'Greetings',
+                                              queryParameters: {
+                                                'id': serializeParam(
+                                                  '',
+                                                  ParamType.String,
+                                                ),
+                                                'carID': serializeParam(
+                                                  '',
+                                                  ParamType.String,
+                                                ),
+                                              }.withoutNulls,
+                                            );
+                                          },
+                                          child: Container(
+                                            width: 64.0,
+                                            height: 64.0,
+                                            decoration: const BoxDecoration(
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 0.0),
+                                              child: InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed(
+                                                    'Greetings',
+                                                    queryParameters: {
+                                                      'id': serializeParam(
+                                                        '',
+                                                        ParamType.String,
+                                                      ),
+                                                      'carID': serializeParam(
+                                                        '',
+                                                        ParamType.String,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
+                                                },
+                                                child: const Icon(
+                                                  Icons.directions_car_sharp,
+                                                  color: Color(0xFF800000),
+                                                  size: 33.0,
                                                 ),
                                               ),
                                             ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 8.0, 0.0, 0.0),
-                                            child: Text(
-                                              'Kereta',
-                                              textAlign: TextAlign.center,
-                                              style: FlutterFlowTheme.of(
-                                                      context)
-                                                  .bodySmall
-                                                  .override(
-                                                    fontFamily: 'Lexend Deca',
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryText,
-                                                    fontSize: 12.0,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                  ),
-                                            ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: Text(
+                                            'Kereta',
+                                            textAlign: TextAlign.center,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodySmall
+                                                .override(
+                                                  fontFamily: 'Lexend Deca',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryText,
+                                                  fontSize: 12.0,
+                                                  fontWeight: FontWeight.normal,
+                                                ),
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),

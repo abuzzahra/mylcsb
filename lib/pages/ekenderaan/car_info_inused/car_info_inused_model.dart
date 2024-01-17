@@ -1,8 +1,8 @@
 import '/flutter_flow/flutter_flow_util.dart';
-import 'available_widget.dart' show AvailableWidget;
+import 'car_info_inused_widget.dart' show CarInfoInusedWidget;
 import 'package:flutter/material.dart';
 
-class AvailableModel extends FlutterFlowModel<AvailableWidget> {
+class CarInfoInusedModel extends FlutterFlowModel<CarInfoInusedWidget> {
   /// Initialization and disposal methods.
 
   @override

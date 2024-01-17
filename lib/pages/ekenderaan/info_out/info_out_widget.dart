@@ -68,7 +68,7 @@ class _InfoOutWidgetState extends State<InfoOutWidget> {
                       size: 20.0,
                     ),
                     onPressed: () async {
-                      context.pop();
+                      context.pushNamed('Dashboard');
                     },
                   ),
                 ],
@@ -143,7 +143,7 @@ class _InfoOutWidgetState extends State<InfoOutWidget> {
                             const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).alternate,
                         textStyle: FlutterFlowTheme.of(context).bodyLarge,
-                        elevation: 0.0,
+                        elevation: 3.0,
                         borderSide: const BorderSide(
                           color: Colors.transparent,
                           width: 1.0,

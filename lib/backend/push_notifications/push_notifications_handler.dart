@@ -133,7 +133,12 @@ final parametersBuilderMap =
       ),
   'Home05TravelApp': ParameterData.none(),
   'Details38TransactionHistoryResponsive': ParameterData.none(),
-  'Greetings': ParameterData.none(),
+  'Greetings': (data) async => ParameterData(
+        allParams: {
+          'id': getParameter<String>(data, 'id'),
+          'carID': getParameter<String>(data, 'carID'),
+        },
+      ),
   'Form': (data) async => ParameterData(
         allParams: {
           'fillIn': getParameter<String>(data, 'fillIn'),
@@ -147,9 +152,13 @@ final parametersBuilderMap =
           'scannedValue': getParameter<String>(data, 'scannedValue'),
         },
       ),
-  'Available': ParameterData.none(),
-  'InUsed': ParameterData.none(),
-  'claimDetail': ParameterData.none(),
+  'CarInfo_Available': ParameterData.none(),
+  'CarInfo_Inused': ParameterData.none(),
+  'claimDetail': (data) async => ParameterData(
+        allParams: {
+          'id': getParameter<String>(data, 'id'),
+        },
+      ),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

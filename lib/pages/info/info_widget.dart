@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'info_model.dart';
 export 'info_model.dart';
@@ -23,6 +24,11 @@ class _InfoWidgetState extends State<InfoWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => InfoModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      context.pushNamed('Dashboard');
+    });
   }
 
   @override
@@ -143,7 +149,7 @@ class _InfoWidgetState extends State<InfoWidget> {
                             const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         color: FlutterFlowTheme.of(context).alternate,
                         textStyle: FlutterFlowTheme.of(context).bodyLarge,
-                        elevation: 0.0,
+                        elevation: 3.0,
                         borderSide: const BorderSide(
                           color: Colors.transparent,
                           width: 1.0,

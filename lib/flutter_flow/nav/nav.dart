@@ -164,7 +164,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Greetings',
           path: '/greetings',
-          builder: (context, params) => const GreetingsWidget(),
+          builder: (context, params) => GreetingsWidget(
+            id: params.getParam('id', ParamType.String),
+            carID: params.getParam('carID', ParamType.String),
+          ),
         ),
         FFRoute(
           name: 'Form',
@@ -196,19 +199,21 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'Available',
-          path: '/available',
-          builder: (context, params) => const AvailableWidget(),
+          name: 'CarInfo_Available',
+          path: '/carInfoAvailable',
+          builder: (context, params) => const CarInfoAvailableWidget(),
         ),
         FFRoute(
-          name: 'InUsed',
-          path: '/inUsed',
-          builder: (context, params) => const InUsedWidget(),
+          name: 'CarInfo_Inused',
+          path: '/carInfoInused',
+          builder: (context, params) => const CarInfoInusedWidget(),
         ),
         FFRoute(
           name: 'claimDetail',
           path: '/claimDetail',
-          builder: (context, params) => const ClaimDetailWidget(),
+          builder: (context, params) => ClaimDetailWidget(
+            id: params.getParam('id', ParamType.String),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

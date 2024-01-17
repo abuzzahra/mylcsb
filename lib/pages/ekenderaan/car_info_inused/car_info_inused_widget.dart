@@ -4,25 +4,25 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'in_used_model.dart';
-export 'in_used_model.dart';
+import 'car_info_inused_model.dart';
+export 'car_info_inused_model.dart';
 
-class InUsedWidget extends StatefulWidget {
-  const InUsedWidget({super.key});
+class CarInfoInusedWidget extends StatefulWidget {
+  const CarInfoInusedWidget({super.key});
 
   @override
-  _InUsedWidgetState createState() => _InUsedWidgetState();
+  _CarInfoInusedWidgetState createState() => _CarInfoInusedWidgetState();
 }
 
-class _InUsedWidgetState extends State<InUsedWidget> {
-  late InUsedModel _model;
+class _CarInfoInusedWidgetState extends State<CarInfoInusedWidget> {
+  late CarInfoInusedModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => InUsedModel());
+    _model = createModel(context, () => CarInfoInusedModel());
   }
 
   @override
@@ -100,7 +100,12 @@ class _InUsedWidgetState extends State<InUsedWidget> {
                           const EdgeInsetsDirectional.fromSTEB(20.0, 16.0, 0.0, 0.0),
                       child: Text(
                         'CDD 789',
-                        style: FlutterFlowTheme.of(context).headlineMedium,
+                        style: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .override(
+                              fontFamily: 'Outfit',
+                              fontSize: 18.0,
+                            ),
                       ),
                     ),
                     Padding(
@@ -121,7 +126,10 @@ class _InUsedWidgetState extends State<InUsedWidget> {
                           const EdgeInsetsDirectional.fromSTEB(20.0, 12.0, 20.0, 4.0),
                       child: Text(
                         'The best of all 3 worlds, Row & Flow offers high intensity rowing and strength intervals followed by athletic based yoga sure to enhance flexible and clear the mind.',
-                        style: FlutterFlowTheme.of(context).labelLarge,
+                        style: FlutterFlowTheme.of(context).labelLarge.override(
+                              fontFamily: 'Readex Pro',
+                              fontSize: 14.0,
+                            ),
                       ),
                     ),
                     Divider(
@@ -185,7 +193,7 @@ class _InUsedWidgetState extends State<InUsedWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .primary,
-                                                  fontSize: 14.0,
+                                                  fontSize: 12.0,
                                                   fontWeight: FontWeight.normal,
                                                 ),
                                           ),
@@ -194,7 +202,11 @@ class _InUsedWidgetState extends State<InUsedWidget> {
                                       Text(
                                         'Sekarang',
                                         style: FlutterFlowTheme.of(context)
-                                            .labelMedium,
+                                            .labelMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              fontSize: 12.0,
+                                            ),
                                       ),
                                     ],
                                   ),
@@ -213,9 +225,13 @@ class _InUsedWidgetState extends State<InUsedWidget> {
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 4.0, 0.0, 0.0),
                                     child: Text(
-                                      'Ladang Selama Lanar',
+                                      'Lain-lain',
                                       style: FlutterFlowTheme.of(context)
-                                          .labelMedium,
+                                          .labelMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            fontSize: 12.0,
+                                          ),
                                     ),
                                   ),
                                 ],
@@ -241,7 +257,7 @@ class _InUsedWidgetState extends State<InUsedWidget> {
                 iconPadding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                 color: FlutterFlowTheme.of(context).alternate,
                 textStyle: FlutterFlowTheme.of(context).bodyLarge,
-                elevation: 0.0,
+                elevation: 3.0,
                 borderSide: const BorderSide(
                   color: Colors.transparent,
                   width: 1.0,
